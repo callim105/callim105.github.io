@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>system_design on Christian&#39;s Dev Blog</title>
+    <link>http://callim105.github.io/tags/system_design/</link>
+    <description>Recent content in system_design on Christian&#39;s Dev Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 Aug 2021 21:26:38 -0500</lastBuildDate><atom:link href="http://callim105.github.io/tags/system_design/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>DDIA Notes Ch.6: Partitioning</title>
+      <link>http://callim105.github.io/posts/ddia_ch6/</link>
+      <pubDate>Tue, 10 Aug 2021 21:26:38 -0500</pubDate>
+      
+      <guid>http://callim105.github.io/posts/ddia_ch6/</guid>
+      <description>Ch 6: Partitioning Note: These are my notes from reading chapter 6 of Designing Data Intensive applications.
+For large datasets, or very high query throughput, we need to break the data up into partitions, also known as sharding.
+ In effect, each partition is a small database of its own.  Partitioning and Replication Basically, you can use both partitioning and replication together to have high availability. You can have copies of each partition stored on multiple nodes.</description>
+    </item>
+    
+  </channel>
+</rss>

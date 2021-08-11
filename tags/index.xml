@@ -6,13 +6,31 @@
     <description>Recent content in Tags on Christian&#39;s Dev Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 05 Aug 2021 20:51:32 -0500</lastBuildDate><atom:link href="http://callim105.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 10 Aug 2021 21:26:38 -0500</lastBuildDate><atom:link href="http://callim105.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>corgi</title>
-      <link>http://callim105.github.io/tags/corgi/</link>
-      <pubDate>Thu, 05 Aug 2021 20:51:32 -0500</pubDate>
+      <title>system_design</title>
+      <link>http://callim105.github.io/tags/system_design/</link>
+      <pubDate>Tue, 10 Aug 2021 21:26:38 -0500</pubDate>
       
-      <guid>http://callim105.github.io/tags/corgi/</guid>
+      <guid>http://callim105.github.io/tags/system_design/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>algo</title>
+      <link>http://callim105.github.io/tags/algo/</link>
+      <pubDate>Tue, 10 Aug 2021 12:23:50 -0500</pubDate>
+      
+      <guid>http://callim105.github.io/tags/algo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>trees</title>
+      <link>http://callim105.github.io/tags/trees/</link>
+      <pubDate>Tue, 10 Aug 2021 12:23:50 -0500</pubDate>
+      
+      <guid>http://callim105.github.io/tags/trees/</guid>
       <description></description>
     </item>
     

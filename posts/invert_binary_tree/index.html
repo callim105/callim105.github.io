@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Invert binary tree | Christian&#39;s Dev Blog</title>
+  <link rel = 'canonical' href = 'http://callim105.github.io/posts/invert_binary_tree/'>
+  <meta name="description" content="Welcome to my brain dump. Technical musings and miscellaneous thoughts.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Invert binary tree" />
+<meta property="og:description" content="Invert a Binary Tree Overview &amp; Problem Space Problem: Write a function that takes in a Binary Tree and inverts it. The function should swap every left node in the tree for its corresponding right node. Each BinaryTree node has an integer value, a left child node and a right child node. Children nodes can either be BinaryTree nodes themselves or None/null.
+Theory I like this problem because its a classic and the solution is actually really clean." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://callim105.github.io/posts/invert_binary_tree/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-08-10T12:23:50-05:00" />
+<meta property="article:modified_time" content="2021-08-10T12:23:50-05:00" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Invert binary tree"/>
+<meta name="twitter:description" content="Invert a Binary Tree Overview &amp; Problem Space Problem: Write a function that takes in a Binary Tree and inverts it. The function should swap every left node in the tree for its corresponding right node. Each BinaryTree node has an integer value, a left child node and a right child node. Children nodes can either be BinaryTree nodes themselves or None/null.
+Theory I like this problem because its a classic and the solution is actually really clean."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="http://callim105.github.io/css/styles.c05d68261bf086a9d7713c4f8a6215a3601608e267a816a7ee58f139b3d1aae51222aae2081c8e0c6bd35e1334773b7a16283022f31f92afd93bb37e5e822e66.css" integrity="sha512-wF1oJhvwhqnXcTxPimIVo2AWCOJnqBan7ljxObPRquUSIqriCByODGvTXhM0dzt6FigwIvMfkq/ZO7N&#43;XoIuZg=="> 
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="http://callim105.github.io/images/favicon.ico" />
+
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Posts</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" http://callim105.github.io/about/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="http://callim105.github.io/posts/ddia_ch6/" aria-label="Next">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=http%3a%2f%2fcallim105.github.io%2fposts%2finvert_binary_tree%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=http%3a%2f%2fcallim105.github.io%2fposts%2finvert_binary_tree%2f&text=Invert%20binary%20tree" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=http%3a%2f%2fcallim105.github.io%2fposts%2finvert_binary_tree%2f&title=Invert%20binary%20tree" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http%3a%2f%2fcallim105.github.io%2fposts%2finvert_binary_tree%2f&is_video=false&description=Invert%20binary%20tree" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Invert%20binary%20tree&body=Check out this article: http%3a%2f%2fcallim105.github.io%2fposts%2finvert_binary_tree%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=http%3a%2f%2fcallim105.github.io%2fposts%2finvert_binary_tree%2f&title=Invert%20binary%20tree" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=http%3a%2f%2fcallim105.github.io%2fposts%2finvert_binary_tree%2f&title=Invert%20binary%20tree" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=http%3a%2f%2fcallim105.github.io%2fposts%2finvert_binary_tree%2f&name=Invert%20binary%20tree&description=Invert%20a%20Binary%20Tree%20Overview%20%26amp%3b%20Problem%20Space%20Problem%3a%20Write%20a%20function%20that%20takes%20in%20a%20Binary%20Tree%20and%20inverts%20it.%20The%20function%20should%20swap%20every%20left%20node%20in%20the%20tree%20for%20its%20corresponding%20right%20node.%20Each%20BinaryTree%20node%20has%20an%20integer%20value%2c%20a%20left%20child%20node%20and%20a%20right%20child%20node.%20Children%20nodes%20can%20either%20be%20BinaryTree%20nodes%20themselves%20or%20None%2fnull.%0aTheory%20I%20like%20this%20problem%20because%20its%20a%20classic%20and%20the%20solution%20is%20actually%20really%20clean." aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=http%3a%2f%2fcallim105.github.io%2fposts%2finvert_binary_tree%2f&t=Invert%20binary%20tree" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview--problem-space">Overview &amp; Problem Space</a></li>
+    <li><a href="#theory">Theory</a></li>
+    <li><a href="#implementation">Implementation</a>
+      <ul>
+        <li><a href="#recursive">Recursive</a></li>
+        <li><a href="#iterative">Iterative</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Invert binary tree
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2021-08-10 12:23:50 -0500 CDT" itemprop="datePublished">2021-08-10</time>
+          
+        </div>
+        
+        
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="/tags/algo" rel="tag">algo</a>
+            
+             ,  
+            <a class="tag-link" href="/tags/trees" rel="tag">trees</a>
+            
+        </div>
+        
+      </div>
+    </header>
+
+  
+    <div class="content" itemprop="articleBody">
+      <h1 id="invert-a-binary-tree">Invert a Binary Tree</h1>
+<h2 id="overview--problem-space">Overview &amp; Problem Space</h2>
+<p>Problem: Write a function that takes in a Binary Tree and inverts it. The function should swap every left node in the tree for its corresponding right node.
+Each BinaryTree node has an integer value, a left child node and a right child node. Children nodes can either be BinaryTree nodes themselves or None/null.</p>
+<h2 id="theory">Theory</h2>
+<p>I like this problem because its a classic and the solution is actually really clean. So &ldquo;inverting a binary tree&rdquo; really means swap each child node. I think the recursive solution is the easiest to think about, so I&rsquo;ll go over that first, and then talk about the iterative solution.
+Recursive: For the recursive solution, I like creating a helper method to handle the swaps. In the helper, first we check the base case if the node is none, and then we do the swaps. I love doing swaps in Python because they&rsquo;re so simple and don&rsquo;t require a temp variable:</p>
+<p>After the swap, we call the function on the left child and the right child. Finally return the node! Then call this function in the original invertBinaryTree function and we&rsquo;re done.
+Iterative: So this solution follows an approach similar to BFS, where we use a queue to hold the nodes we have to iterate through. We first create a queue with a single element, the root node. Then while the length of the queue is not zero, we pop off the first element of the queue, swap the left and right children, and then append that node&rsquo;s left and right child nodes</p>
+<h2 id="implementation">Implementation</h2>
+<h3 id="recursive">Recursive</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># O(n) time | O(log(n)) space</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">invertBinaryTree</span>(tree):
+    <span style="color:#66d9ef">return</span> invertBinaryTreeHelper(tree)
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">invertBinaryTreeHelper</span>(node):
+		<span style="color:#66d9ef">if</span> node <span style="color:#f92672">is</span> <span style="color:#66d9ef">None</span>:
+			<span style="color:#66d9ef">return</span>
+		node<span style="color:#f92672">.</span>left, node<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> node<span style="color:#f92672">.</span>right, node<span style="color:#f92672">.</span>left
+		invertBinaryTreeHelper(node<span style="color:#f92672">.</span>left)
+		invertBinaryTreeHelper(node<span style="color:#f92672">.</span>right)
+		<span style="color:#66d9ef">return</span> node
+
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="iterative">Iterative</h3>
+<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># O(n) time | O(n) space</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">invertBinaryTree</span>(tree):
+    queue <span style="color:#f92672">=</span> [tree]
+	<span style="color:#66d9ef">while</span> len(queue):
+		current <span style="color:#f92672">=</span> queue<span style="color:#f92672">.</span>pop(<span style="color:#ae81ff">0</span>)
+		<span style="color:#66d9ef">if</span> current <span style="color:#f92672">is</span> <span style="color:#66d9ef">None</span>:
+			<span style="color:#66d9ef">continue</span>
+		swapLeftAndRight(current)
+		queue<span style="color:#f92672">.</span>append(current<span style="color:#f92672">.</span>left)
+		queue<span style="color:#f92672">.</span>append(current<span style="color:#f92672">.</span>right)
+	<span style="color:#66d9ef">return</span> tree
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">swapLeftAndRight</span>(tree):
+	tree<span style="color:#f92672">.</span>left, tree<span style="color:#f92672">.</span>right <span style="color:#f92672">=</span> tree<span style="color:#f92672">.</span>right, tree<span style="color:#f92672">.</span>left
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">Posts</a></li>
+         
+          <li><a href="/tags">Tags</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview--problem-space">Overview &amp; Problem Space</a></li>
+    <li><a href="#theory">Theory</a></li>
+    <li><a href="#implementation">Implementation</a>
+      <ul>
+        <li><a href="#recursive">Recursive</a></li>
+        <li><a href="#iterative">Iterative</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=http%3a%2f%2fcallim105.github.io%2fposts%2finvert_binary_tree%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=http%3a%2f%2fcallim105.github.io%2fposts%2finvert_binary_tree%2f&text=Invert%20binary%20tree" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=http%3a%2f%2fcallim105.github.io%2fposts%2finvert_binary_tree%2f&title=Invert%20binary%20tree" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http%3a%2f%2fcallim105.github.io%2fposts%2finvert_binary_tree%2f&is_video=false&description=Invert%20binary%20tree" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Invert%20binary%20tree&body=Check out this article: http%3a%2f%2fcallim105.github.io%2fposts%2finvert_binary_tree%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=http%3a%2f%2fcallim105.github.io%2fposts%2finvert_binary_tree%2f&title=Invert%20binary%20tree" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=http%3a%2f%2fcallim105.github.io%2fposts%2finvert_binary_tree%2f&title=Invert%20binary%20tree" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=http%3a%2f%2fcallim105.github.io%2fposts%2finvert_binary_tree%2f&name=Invert%20binary%20tree&description=Invert%20a%20Binary%20Tree%20Overview%20%26amp%3b%20Problem%20Space%20Problem%3a%20Write%20a%20function%20that%20takes%20in%20a%20Binary%20Tree%20and%20inverts%20it.%20The%20function%20should%20swap%20every%20left%20node%20in%20the%20tree%20for%20its%20corresponding%20right%20node.%20Each%20BinaryTree%20node%20has%20an%20integer%20value%2c%20a%20left%20child%20node%20and%20a%20right%20child%20node.%20Children%20nodes%20can%20either%20be%20BinaryTree%20nodes%20themselves%20or%20None%2fnull.%0aTheory%20I%20like%20this%20problem%20because%20its%20a%20classic%20and%20the%20solution%20is%20actually%20really%20clean." aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=http%3a%2f%2fcallim105.github.io%2fposts%2finvert_binary_tree%2f&t=Invert%20binary%20tree" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2021  Christian&#39;s Dev Blog 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Posts</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+<script src=/js/code-copy.js></script>
+
+
+
+</html>

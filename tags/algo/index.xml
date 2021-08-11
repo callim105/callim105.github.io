@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>algo on Christian&#39;s Dev Blog</title>
+    <link>http://callim105.github.io/tags/algo/</link>
+    <description>Recent content in algo on Christian&#39;s Dev Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 Aug 2021 12:23:50 -0500</lastBuildDate><atom:link href="http://callim105.github.io/tags/algo/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Invert binary tree</title>
+      <link>http://callim105.github.io/posts/invert_binary_tree/</link>
+      <pubDate>Tue, 10 Aug 2021 12:23:50 -0500</pubDate>
+      
+      <guid>http://callim105.github.io/posts/invert_binary_tree/</guid>
+      <description>Invert a Binary Tree Overview &amp;amp; Problem Space Problem: Write a function that takes in a Binary Tree and inverts it. The function should swap every left node in the tree for its corresponding right node. Each BinaryTree node has an integer value, a left child node and a right child node. Children nodes can either be BinaryTree nodes themselves or None/null.
+Theory I like this problem because its a classic and the solution is actually really clean.</description>
+    </item>
+    
+  </channel>
+</rss>
