@@ -4,7 +4,16 @@
         <link>http://callim105.github.io/posts/</link>
         <description>All Posts | Christian Lim</description>
         <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>christiananthonylim1@gmail.com (Christian Lim)</managingEditor>
-            <webMaster>christiananthonylim1@gmail.com (Christian Lim)</webMaster><lastBuildDate>Tue, 10 Aug 2021 21:26:38 -0500</lastBuildDate><atom:link href="http://callim105.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+            <webMaster>christiananthonylim1@gmail.com (Christian Lim)</webMaster><lastBuildDate>Tue, 17 Aug 2021 21:36:32 -0500</lastBuildDate><atom:link href="http://callim105.github.io/posts/" rel="self" type="application/rss+xml" /><item>
+    <title>Design FB News Feed</title>
+    <link>http://callim105.github.io/posts/fb_newsfeed/</link>
+    <pubDate>Tue, 17 Aug 2021 21:36:32 -0500</pubDate>
+    <author>Author</author>
+    <guid>http://callim105.github.io/posts/fb_newsfeed/</guid>
+    <description><![CDATA[Overview Problem: Design a news feed system. What&rsquo;s a news feed?
+ &ldquo;News feed is the constantly updating list of stories in the middle of your homepage. News feed includes status updates, photos, videos, links, app activity and likes from people, pages, and groups that you follow on Facebook.&rdquo;
+ Step 1: Understand the problem and scope Make sure to ask clarifying questions to gauge the scope of the problem which you have to design around.]]></description>
+</item><item>
     <title>DDIA Notes Ch.6: Partitioning</title>
     <link>http://callim105.github.io/posts/ddia_ch6/</link>
     <pubDate>Tue, 10 Aug 2021 21:26:38 -0500</pubDate>

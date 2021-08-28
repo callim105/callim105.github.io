@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <title>Design FB News Feed - Christian Lim</title><meta name="Description" content=""><meta property="og:title" content="Design FB News Feed" />
+<meta property="og:description" content="Overview Problem: Design a news feed system. What&rsquo;s a news feed?
+ &ldquo;News feed is the constantly updating list of stories in the middle of your homepage. News feed includes status updates, photos, videos, links, app activity and likes from people, pages, and groups that you follow on Facebook.&rdquo;
+ Step 1: Understand the problem and scope Make sure to ask clarifying questions to gauge the scope of the problem which you have to design around." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://callim105.github.io/posts/fb_newsfeed/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-08-17T21:36:32-05:00" />
+<meta property="article:modified_time" content="2021-08-17T21:36:32-05:00" />
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Design FB News Feed"/>
+<meta name="twitter:description" content="Overview Problem: Design a news feed system. What&rsquo;s a news feed?
+ &ldquo;News feed is the constantly updating list of stories in the middle of your homepage. News feed includes status updates, photos, videos, links, app activity and likes from people, pages, and groups that you follow on Facebook.&rdquo;
+ Step 1: Understand the problem and scope Make sure to ask clarifying questions to gauge the scope of the problem which you have to design around."/>
+<meta name="application-name" content="Christian Lim">
+<meta name="apple-mobile-web-app-title" content="Christian Lim"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="http://callim105.github.io/posts/fb_newsfeed/" /><link rel="prev" href="http://callim105.github.io/posts/ddia_ch6/" /><link rel="stylesheet" href="/lib/normalize/normalize.min.css"><link rel="stylesheet" href="/css/style.min.css"><link rel="stylesheet" href="/lib/fontawesome-free/all.min.css"><link rel="stylesheet" href="/lib/animate/animate.min.css"><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Design FB News Feed",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "http:\/\/callim105.github.io\/posts\/fb_newsfeed\/"
+        },"genre": "posts","wordcount":  666 ,
+        "url": "http:\/\/callim105.github.io\/posts\/fb_newsfeed\/","datePublished": "2021-08-17T21:36:32-05:00","dateModified": "2021-08-17T21:36:32-05:00","publisher": {
+            "@type": "Organization",
+            "name": "Christian Lim"},"author": {
+                "@type": "Person",
+                "name": "Christian Lim"
+            },"description": ""
+    }
+    </script></head>
+    <body header-desktop="" header-mobile=""><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : '' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Christian Lim">Christian Lim</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/about/" title="Info about me"> About </a><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><span class="menu-item delimiter"></span><span class="menu-item search" id="search-desktop">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-desktop">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-desktop" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-desktop" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-desktop">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Christian Lim">Christian Lim</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><div class="search-wrapper">
+                    <div class="search mobile" id="search-mobile">
+                        <input type="text" placeholder="Search titles or contents..." id="search-input-mobile">
+                        <a href="javascript:void(0);" class="search-button search-toggle" id="search-toggle-mobile" title="Search">
+                            <i class="fas fa-search fa-fw"></i>
+                        </a>
+                        <a href="javascript:void(0);" class="search-button search-clear" id="search-clear-mobile" title="Clear">
+                            <i class="fas fa-times-circle fa-fw"></i>
+                        </a>
+                        <span class="search-button search-loading" id="search-loading-mobile">
+                            <i class="fas fa-spinner fa-fw fa-spin"></i>
+                        </span>
+                    </div>
+                    <a href="javascript:void(0);" class="search-cancel" id="search-cancel-mobile">
+                        Cancel
+                    </a>
+                </div><a class="menu-item" href="/about/" title="Info about me">About</a><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw"></i>
+            </a></div>
+    </div>
+</header>
+<div class="search-dropdown desktop">
+    <div id="search-dropdown-desktop"></div>
+</div>
+<div class="search-dropdown mobile">
+    <div id="search-dropdown-mobile"></div>
+</div>
+<main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animated flipInX">Design FB News Feed</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel=" author" class="author"><i class="fas fa-user-circle fa-fw"></i>Christian Lim</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw"></i>&nbsp;<time datetime="2021-08-17">2021-08-17</time>&nbsp;<i class="fas fa-pencil-alt fa-fw"></i>&nbsp;666 words&nbsp;
+                <i class="far fa-clock fa-fw"></i>&nbsp;4 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#step-1-understand-the-problem-and-scope">Step 1: Understand the problem and scope</a></li>
+    <li><a href="#step-2-propose-high-level-design">Step 2: Propose high-level design</a>
+      <ul>
+        <li><a href="#newsfeed-apis">Newsfeed APIs</a></li>
+        <li><a href="#feed-publishing-flow">Feed publishing flow</a></li>
+        <li><a href="#step-3-dig-in-to-the-design">Step 3: Dig in to the design</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h2 id="overview">Overview</h2>
+<p>Problem: Design a news feed system.
+What&rsquo;s a news feed?</p>
+<blockquote>
+<p>&ldquo;News feed is the constantly updating list of stories
+in the middle of your homepage. News feed includes status
+updates, photos, videos, links, app activity and likes from
+people, pages, and groups that you follow on Facebook.&rdquo;</p>
+</blockquote>
+<h2 id="step-1-understand-the-problem-and-scope">Step 1: Understand the problem and scope</h2>
+<p>Make sure to ask clarifying questions to gauge the scope
+of the problem which you have to design around.
+Some sample questions:</p>
+<ul>
+<li>Is it a mobile app? Web app? both?</li>
+<li>What are the important features?</li>
+<li>Is the news feed sorted? Reverse chronological or other?</li>
+<li>How many friends can a user have?</li>
+<li>What is the traffic volume?</li>
+<li>Does the feed contain media? Or just text?</li>
+</ul>
+<h2 id="step-2-propose-high-level-design">Step 2: Propose high-level design</h2>
+<p>Two parts: feed publishing and news feed building.</p>
+<ul>
+<li><em>Feed publishing</em>: user publishes post, data is written to cache
+and database. Posts are populated to friend&rsquo;s news feeds.</li>
+<li><em>Newsfeed building</em>: We&rsquo;re assuming the news feed is built by
+aggregating friends' posts in reverse chronological order.</li>
+</ul>
+<h3 id="newsfeed-apis">Newsfeed APIs</h3>
+<h4 id="feed-publishing-api">Feed publishing API</h4>
+<p>HTTP Post to publish with the content and an auth_token.
+e.g. POST /v1/me/feed</p>
+<h4 id="newsfeed-retrieval-api">Newsfeed retrieval API</h4>
+<p>The API to get the news feed. Supply auth token.
+e.g. GET /v1/me/feed</p>
+<h3 id="feed-publishing-flow">Feed publishing flow</h3>
+<p>The main pieces to the flow are the users, load balancer, web servers,
+post service, fanout service, and notification service.
+The users will view and make posts through the API. The load
+balancer distributes traffic evenly to the web servers. The
+web servers redirect traffic to different internal services.
+Post service is responsible for persisting posts in the db and cache.</p>
+<p>The fanout service&rsquo;s job is to push new content to friends' news feeds.
+Newsfeed data is stored in the cache for fast retrieval.
+The notification service informs friends that new content is
+available and it sends out push notifications.</p>
+<h3 id="step-3-dig-in-to-the-design">Step 3: Dig in to the design</h3>
+<h4 id="feed-publishing-dive">Feed Publishing Dive</h4>
+<p>The role of the web server is to communicate with clients, and
+also enforce authentication and rate-limiting. Users need
+a valid auth token to make posts, and the number of posts a
+user can make within a certain period will be limited to prevent
+abuse.</p>
+<h5 id="fanout">Fanout</h5>
+<p>Fanout is the process of distributing a post to friends.
+There are two different approaches to fanout:</p>
+<ul>
+<li>
+<p><strong>Fanout on write</strong>: News feed is pre-computed during write time.
+A new post is delivered to a friends' cache right after it&rsquo;s published.</p>
+<ul>
+<li>Pros:
+<ul>
+<li>News feed is generated in real time and can be pushed immediately</li>
+<li>Fetching news is fast because its pre-computed</li>
+</ul>
+</li>
+<li>Cons:
+<ul>
+<li>If a user has a lot of friends, fetching the friend list
+and generating news feeds for all of them are slow and time consuming.
+This is known as a hotkey problem.</li>
+<li>For inactive users, pre-computing news feeds wastes compute.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Fanout on read</strong>: The newsfeed is generated during read time, on demand.
+When a user loads their home page, thats when recent posts are pulled.</p>
+<ul>
+<li>Pros:
+<ul>
+<li>For inactive users this is a better approach because it won&rsquo;t waste
+compute.</li>
+<li>No hotkey problem because data isn&rsquo;t pushed to friends</li>
+</ul>
+</li>
+<li>Cons:
+<ul>
+<li>Fetching the news feed is slow.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>We can adopt a hybrid approach depending on the amount of friends a user has.
+This is similar to how Twitter handles their regular users vs. celebrities.
+We can use a push model for most users, but then use a pull model for
+celebrities.</p>
+<p><strong>Consistent hashing</strong> is a useful technique to get around the hotkey (or hotspot)
+problem as it helps distribute requests evenly.</p>
+<p>The fanout service flow is like this:</p>
+<ol>
+<li>Fetch friend IDs from the graph db. Graph db&rsquo;s are suited for managing
+friend relationship and friend recommendations.</li>
+<li>Get friends info from the user cache. Then filter out friends
+based on user settings, like if you mute someone you shouldn&rsquo;t see
+their posts.</li>
+<li>Send friends list and new post ID to the message queue.</li>
+<li>Fanout workers fetch data from the queue and store news feed
+data in the news feed cache.</li>
+<li>Store post_id, and user_id in the cache.</li>
+</ol>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on 2021-08-17</span>
+            </div>
+            <div class="post-info-license"></div>
+        </div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/ddia_ch6/" class="prev" rel="prev" title="DDIA Notes Ch.6: Partitioning"><i class="fas fa-angle-left fa-fw"></i>DDIA Notes Ch.6: Partitioning</a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line"><i class="far fa-copyright fa-fw"></i><span itemprop="copyrightYear">2021</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank">Christian Lim</a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw"></i>
+            </a>
+        </div><script type="text/javascript" src="/lib/smooth-scroll/smooth-scroll.min.js"></script><script type="text/javascript" src="/lib/autocomplete/autocomplete.min.js"></script><script type="text/javascript" src="/lib/lunr/lunr.min.js"></script><script type="text/javascript" src="/lib/lazysizes/lazysizes.min.js"></script><script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":10},"comment":{},"search":{"highlightTag":"em","lunrIndexURL":"/index.json","maxResultLength":10,"noResultsFound":"No results found","snippetLength":30,"type":"lunr"}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>
