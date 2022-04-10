@@ -1,7 +1,7 @@
 baseURL: "https://clim.dev"
 languageCode: 'en-us'
 title: CLIM DEV
-theme: PaperMod
+theme: MyPaperMod
 
 params:
     ShowBreadCrumbs: true
