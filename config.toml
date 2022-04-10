@@ -1,4 +1,4 @@
-baseURL = 'http://callim105.github.io'
+baseURL = 'https://clim.dev'
 languageCode = 'en-us'
 title = 'CLIM DEV blog'
 theme = "lim"
