@@ -1,0 +1,27 @@
+baseURL: "https://clim.dev"
+languageCode: 'en-us'
+title: CLIM DEV
+theme: MyPaperMod
+
+params:
+    ShowBreadCrumbs: true
+
+
+menu:
+    main:
+        - identifier: home
+          name: home
+          url: /
+          weight: 10
+        - identifier: tags
+          name: tags
+          url: /tags/
+          weight: 20
+        - identifier: blog
+          name: blog
+          url: /blog/
+          weight: 30
+        - identifier: about
+          name: about
+          url: about
+          weight: 40
